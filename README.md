@@ -13,38 +13,52 @@ Configure your Ubuntu repositories to allow "restricted," "universe," and "multi
  http://wiki.ros.org/melodic/Installation/Ubuntu
 
 Setup your computer to accept software from packages.ros.org.
+
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
+
+
 I. Set up your keys
+
 sudo apt install curl # if you haven't already installed curl
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 
 II. Installation
+
 First, make sure your Debian package index is up-to-date:
+
 sudo apt update
 
 1#-Desktop-Full Install: ROS, rqt, rviz, robot-generic libraries, 2D/3D simulators and 2D/3D perception
+
 sudo apt install ros-noetic-desktop-full
 
 2#-Desktop Install: ROS, rqt, rviz, and robot-generic libraries
+
 sudo apt install ros-noetic-desktop
 
 3#-ROS-Base:ROS package, build, and communication libraries. No GUI tools.
+
 sudo apt install ros-noetic-ros-base
 
 There are even more packages available in ROS. You can always install a specific package directly.
+
 sudo apt install ros-noetic-PACKAGE
+
 For example:
+
 sudo apt install ros-noetic-slam-gmapping
 
 III. Environment setup
 You must source this script in every bash terminal you use ROS in.
+
 source /opt/ros/noetic/setup.bash
 
 It can be convenient to automatically source this script every time a new shell is launched. These commands will do that for you:
 bash
 
 echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc source ~/.bashrc
+
 zsh
 
 echo "source /opt/ros/noetic/setup.zsh" >> ~/.zshrc source ~/.zshrc
